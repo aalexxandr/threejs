@@ -104,4 +104,4 @@ const handleClick = e => {
 };
 
 window.addEventListener('click', handleClick);
-window.addEventListener('touch', handleClick);
+window.addEventListener('touchstart', handleClick);
