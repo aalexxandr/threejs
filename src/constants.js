@@ -14,3 +14,5 @@ export const COLORS = [
 
 export const MIN_SCALE = 0.5;
 export const MAX_SCALE = 1;
+
+export const DEFAULT_MATERIAL_COLOR = 'gray';

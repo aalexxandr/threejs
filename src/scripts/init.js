@@ -8,8 +8,8 @@ const sizes = {
 // scene
 const scene = new THREE.Scene();
 
-// const axesHelper = new THREE.AxesHelper(3);
-// scene.add(axesHelper);
+const axesHelper = new THREE.AxesHelper(3);
+scene.add(axesHelper);
 
 // camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
