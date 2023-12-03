@@ -2,7 +2,7 @@ import '../styles/index.css';
 import * as THREE from 'three';
 import TWEEN from 'three/examples/jsm/libs/tween.module';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { renderer, scene, camera, canvas } from './init';
+import { renderer, scene, camera, canvas, stats, gui } from './init';
 import { DEFAULT_MATERIAL_COLOR } from '../constants';
 
 camera.position.z = 15;
@@ -36,6 +36,12 @@ for (let i = -5; i <= 5; i += 5) {
 		});
 
 		const mesh = new THREE.Mesh(geometries[index], material);
+		gui
+			.add(mesh.scale, 'x')
+			.min(0)
+			.max(7)
+			.step(0.5)
+			.name(`${index} item - scale X `);
 		mesh.position.set(i, j, 0);
 		mesh.index = index;
 		mesh.basePosition = new THREE.Vector3(i, j, 0);
@@ -49,6 +55,7 @@ scene.add(group);
 
 const clock = new THREE.Clock();
 const tick = () => {
+	stats.begin();
 	const delta = clock.getDelta();
 
 	if (activeItemIndex !== -1) {
@@ -57,6 +64,7 @@ const tick = () => {
 
 	renderer.render(scene, camera);
 	TWEEN.update();
+	stats.end();
 	window.requestAnimationFrame(tick);
 };
 

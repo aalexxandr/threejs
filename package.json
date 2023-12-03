@@ -9,6 +9,8 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"lil-gui": "^0.19.1",
+		"stats.js": "^0.17.0",
 		"three": "^0.159.0"
 	},
 	"devDependencies": {

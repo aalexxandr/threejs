@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import Stats from 'stats.js';
+import * as dat from 'lil-gui';
 
 const sizes = {
 	width: window.innerWidth,
@@ -8,8 +10,16 @@ const sizes = {
 // scene
 const scene = new THREE.Scene();
 
+// helpers
+
 // const axesHelper = new THREE.AxesHelper(3);
 // scene.add(axesHelper);
+
+const stats = new Stats();
+stats.showPanel(0);
+document.body.appendChild(stats.dom);
+
+const gui = new dat.GUI();
 
 // camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
@@ -42,4 +52,4 @@ window.addEventListener('dblclick', () => {
 	}
 });
 
-export { sizes, scene, camera, renderer, canvas };
+export { sizes, scene, camera, renderer, canvas, stats, gui };
