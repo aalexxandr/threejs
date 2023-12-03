@@ -82,9 +82,13 @@ const resetActiveItem = () => {
 const raycaster = new THREE.Raycaster();
 const handleClick = e => {
 	const pointer = new THREE.Vector2();
-	pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-	pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-
+	if (e.changedTouches) {
+		pointer.x = (e.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
+		pointer.y = -(e.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
+	} else {
+		pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+		pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+	}
 	raycaster.setFromCamera(pointer, camera);
 	const intersection =
 		raycaster.intersectObjects(group.children)?.[0] || undefined;
