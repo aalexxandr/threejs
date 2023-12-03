@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
+import path from 'path';
 
 export default defineConfig({
-	root: './src',
-	publicDir: '../public',
+	root: path.join(__dirname, './src'),
 	build: {
-		outDir: '../build',
+		outDir: path.join(__dirname, './dist'),
 	},
 });
