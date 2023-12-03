@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { renderer, scene, camera, canvas } from './init';
 import { DEFAULT_MATERIAL_COLOR } from '../constants';
 
-camera.position.z = 10;
+camera.position.z = 15;
 
 // controls
 const controls = new OrbitControls(camera, canvas);
@@ -104,3 +104,4 @@ const handleClick = e => {
 };
 
 window.addEventListener('click', handleClick);
+window.addEventListener('touch', handleClick);
